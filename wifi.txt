@@ -1,3 +1,9 @@
+#setup autologin
+
+sudo echo "autologin-user=kli" >> /etc/lightdm/lightdm.conf
+sudo echo "autologin-user-timeout=0" >> /etc/lightdm/lightdm.conf
+
+
 #First, set up the connection with GUI
 
 #Create new service - replace foo-daemon with service name
