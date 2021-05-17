@@ -40,3 +40,10 @@ sudo systemctl daemon-reload
 #Enable service at startup
 sudo systemctl enable /etc/systemd/system/foo-daemon.service
 
+#edit interfaces
+sudo nano /etc/network/interfaces
+
+add: 
+
+auto wlan0
+allow-hotplug wlan0
