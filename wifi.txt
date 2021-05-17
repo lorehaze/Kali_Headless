@@ -1,6 +1,6 @@
 #setup autologin
 
-sudo echo "autologin-user=kli" >> /etc/lightdm/lightdm.conf
+sudo echo "autologin-user=kali" >> /etc/lightdm/lightdm.conf
 sudo echo "autologin-user-timeout=0" >> /etc/lightdm/lightdm.conf
 
 
