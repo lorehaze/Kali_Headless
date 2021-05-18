@@ -1,7 +1,9 @@
 #setup autologin
+in /etc/lightdm/lightdm.conf
 
-sudo echo "autologin-user=kali" >> /etc/lightdm/lightdm.conf
-sudo echo "autologin-user-timeout=0" >> /etc/lightdm/lightdm.conf
+section [Seat *:*]
+autologin-user=kali
+autologin-user-timeout=0
 
 
 #First, set up the connection with GUI
