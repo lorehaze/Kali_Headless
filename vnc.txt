@@ -1,0 +1,25 @@
+I would recommend using x11vnc as it provides the actual desktop experience rather than a virtual one.
+
+To install x11vnc enter the following command:
+
+apt-get update && apt-get install -y x11vnc
+
+If you experience that the framebuffer size is too small, then to change it by doing the following:
+
+Locate /boot/config.txt and open it using nano or vim
+(Note: If the file /boot/config.txt does not exist, safely power-off the Pi using the command, poweroff and take the Micro-SD card out and plug it into a laptop or desktop computer. When the Micro-SD card mounts, open it. The config.txt file should be on the root of the mounted Micro-SD card).
+
+uncomment the following text in config.txt:
+Before:
+
+#framebuffer_width=1280
+
+#framebuffer_height=720
+
+After:
+
+framebuffer_width=1280
+
+framebuffer_height=720
+
+Save and exit the file. Then, reboot the Pi and start x11vnc
