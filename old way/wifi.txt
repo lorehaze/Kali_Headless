@@ -1,0 +1,59 @@
+#setup autologin
+in /etc/lightdm/lightdm.conf
+
+section [Seat *:*]
+autologin-user=kali
+autologin-user-timeout=0
+
+
+#First, set up the connection with GUI
+
+#Create new service - replace foo-daemon with service name
+ sudo touch /etc/systemd/system/foo-daemon.service
+
+
+#Edit the file
+ sudo nano /etc/systemd/system/foo-daemon.service
+
+	
+  
+  #Content:
+
+        [Unit]
+        Description=Auto connect wifi
+        After=multi-user.target
+
+        [Service]
+        ExecStart=/usr/bin/nmcli connection up *SSID*
+
+        [Install]
+        WantedBy=multi-user.target
+
+
+
+#Set permissions
+
+sudo chmod 664 /etc/systemd/system/foo-daemon.service
+
+
+#restart daemon
+sudo systemctl daemon-reload
+
+#Enable service at startup
+sudo systemctl enable /etc/systemd/system/foo-daemon.service
+
+////////*#edit interfaces
+sudo nano /etc/network/interfaces
+
+add: 
+
+auto wlan0
+allow-hotplug wlan0
+*/////////////
+
+#Edit /boot/config.txt
+
+uncomment 
+hdmi_force_hotplug=1
+
+this will help enabling wifi in kali at startup
